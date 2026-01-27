@@ -1,3 +1,4 @@
+"./Components/AltitudeTask/AltitudeTask.o"
 "./Components/DebugTask.o"
 "./Components/RunInterface.o"
 "./Components/main_system.o"
