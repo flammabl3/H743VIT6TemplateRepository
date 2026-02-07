@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [submodule "AvionicsSoftware"]
 	path = AvionicsSoftware
 	url = https://github.com/StudentOrganisationForAerospaceResearch/AvionicsSoftware.git
@@ -7,7 +8,18 @@
 [submodule "AltitudePredictionFilter"]
 	path = AltitudePredictionFilter
 	url = .\\AltitudePredictionFilter\\
+=======
+>>>>>>> e042bf9 (PubSub implementation done)
 [submodule "SoarOS"]
 	path = SoarOS
 	url = https://github.com/UCSOAR/SoarOperatingSystem.git
-	branch = Shivam/PubSub
+[submodule "AvionicsSoftware"]
+	path = AvionicsSoftware
+	url = https://github.com/StudentOrganisationForAerospaceResearch/AvionicsSoftware.git
+[submodule "SoarDrivers"]
+	path = SoarDrivers
+	url = https://github.com/UCSOAR/PeripheralDriversSubmodule
+[submodule "AltitudePredictionFilter"]
+	path = AltitudePredictionFilter
+	url = https://github.com/flammabl3/AltitudePredictionFilter.git
+	branch = harry/altitude-prediction-filter-integration
