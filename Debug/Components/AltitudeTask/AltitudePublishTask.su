@@ -1,0 +1,32 @@
+C:/Users/harry/Desktop/soar/H743VIT6TemplateRepository/SoarOS/Core/Inc/Command.hpp:48:21:GLOBAL_COMMANDS Command::GetCommand() const	16	static
+../Components/AltitudeTask/AltitudePublishTask.hpp:15:30:static AltitudePublishTask& AltitudePublishTask::Inst()	8	static
+../Components/AltitudeTask/AltitudePublishTask.hpp:23:14:static void AltitudePublishTask::RunTask(void*)	16	static
+C:/Users/harry/Desktop/soar/H743VIT6TemplateRepository/SoarOS/Components/DataBroker/Inc/Subscriber.hpp:46:22:const Task* Subscriber::getSubscriberTaskHandle() const	16	static
+C:/Users/harry/Desktop/soar/H743VIT6TemplateRepository/SoarOS/Components/DataBroker/Inc/Subscriber.hpp:48:17:Queue* Subscriber::getSubscriberQueueHandle() const	16	static
+C:\ST\STM32CubeIDE_1.19.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344\tools\arm-none-eabi\include\c++\13.3.1\arm-none-eabi\thumb\v7e-m+dp\hard\bits\gthr-default.h:229:1:int __gthread_key_delete(__gthread_key_t)	16	static
+../Components/AltitudeTask/AltitudePublishTask.cpp:28:1:AltitudePublishTask::AltitudePublishTask()	16	static
+../Components/AltitudeTask/AltitudePublishTask.cpp:35:6:virtual void AltitudePublishTask::InitTask()	32	static
+../Components/AltitudeTask/AltitudePublishTask.cpp:57:6:void AltitudePublishTask::Run(void*)	64	static
+../Components/AltitudeTask/AltitudePublishTask.cpp:100:6:void AltitudePublishTask::HandleCommand(Command&)	16	static
+../Components/AltitudeTask/AltitudePublishTask.cpp:119:6:void AltitudePublishTask::HandleDataBrokerCommand(const Command&)	16	static
+C:/Users/harry/Desktop/soar/H743VIT6TemplateRepository/SoarOS/Components/DataBroker/Inc/Publisher.hpp:38:3:Publisher<T, MaxSubscribers>::Publisher(DataBrokerMessageTypes) [with T = IMUData; unsigned char MaxSubscribers = 5]	16	static
+C:/Users/harry/Desktop/soar/H743VIT6TemplateRepository/SoarOS/Components/DataBroker/Inc/Publisher.hpp:38:3:Publisher<T, MaxSubscribers>::Publisher(DataBrokerMessageTypes) [with T = GPSData; unsigned char MaxSubscribers = 5]	16	static
+C:/Users/harry/Desktop/soar/H743VIT6TemplateRepository/SoarOS/Components/DataBroker/Inc/Publisher.hpp:38:3:Publisher<T, MaxSubscribers>::Publisher(DataBrokerMessageTypes) [with T = MagData; unsigned char MaxSubscribers = 5]	16	static
+C:/Users/harry/Desktop/soar/H743VIT6TemplateRepository/SoarOS/Components/DataBroker/Inc/Publisher.hpp:38:3:Publisher<T, MaxSubscribers>::Publisher(DataBrokerMessageTypes) [with T = BaroData; unsigned char MaxSubscribers = 5]	16	static
+C:/Users/harry/Desktop/soar/H743VIT6TemplateRepository/SoarOS/Components/DataBroker/Inc/Publisher.hpp:38:3:Publisher<T, MaxSubscribers>::Publisher(DataBrokerMessageTypes) [with T = FilterData; unsigned char MaxSubscribers = 5]	16	static
+C:/Users/harry/Desktop/soar/H743VIT6TemplateRepository/SoarOS/Components/DataBroker/Inc/DataBroker.hpp:178:15:static auto DataBroker::getPublisher() [with T = IMUData]	4	static
+C:/Users/harry/Desktop/soar/H743VIT6TemplateRepository/SoarOS/Components/DataBroker/Inc/DataBroker.hpp:45:15:static void DataBroker::Publish(T*) [with T = IMUData]	24	static
+C:/Users/harry/Desktop/soar/H743VIT6TemplateRepository/SoarOS/Components/DataBroker/Inc/DataBroker.hpp:178:15:static auto DataBroker::getPublisher() [with T = GPSData]	4	static
+C:/Users/harry/Desktop/soar/H743VIT6TemplateRepository/SoarOS/Components/DataBroker/Inc/DataBroker.hpp:45:15:static void DataBroker::Publish(T*) [with T = GPSData]	24	static
+C:/Users/harry/Desktop/soar/H743VIT6TemplateRepository/SoarOS/Components/DataBroker/Inc/DataBroker.hpp:178:15:static auto DataBroker::getPublisher() [with T = MagData]	4	static
+C:/Users/harry/Desktop/soar/H743VIT6TemplateRepository/SoarOS/Components/DataBroker/Inc/DataBroker.hpp:45:15:static void DataBroker::Publish(T*) [with T = MagData]	24	static
+C:/Users/harry/Desktop/soar/H743VIT6TemplateRepository/SoarOS/Components/DataBroker/Inc/DataBroker.hpp:178:15:static auto DataBroker::getPublisher() [with T = BaroData]	4	static
+C:/Users/harry/Desktop/soar/H743VIT6TemplateRepository/SoarOS/Components/DataBroker/Inc/DataBroker.hpp:45:15:static void DataBroker::Publish(T*) [with T = BaroData]	24	static
+C:/Users/harry/Desktop/soar/H743VIT6TemplateRepository/SoarOS/Components/DataBroker/Inc/Publisher.hpp:75:8:void Publisher<T, MaxSubscribers>::Publish(T*) [with T = IMUData; unsigned char MaxSubscribers = 5]	56	static
+C:/Users/harry/Desktop/soar/H743VIT6TemplateRepository/SoarOS/Components/DataBroker/Inc/Publisher.hpp:75:8:void Publisher<T, MaxSubscribers>::Publish(T*) [with T = GPSData; unsigned char MaxSubscribers = 5]	56	static
+C:/Users/harry/Desktop/soar/H743VIT6TemplateRepository/SoarOS/Components/DataBroker/Inc/Publisher.hpp:75:8:void Publisher<T, MaxSubscribers>::Publish(T*) [with T = MagData; unsigned char MaxSubscribers = 5]	56	static
+C:/Users/harry/Desktop/soar/H743VIT6TemplateRepository/SoarOS/Components/DataBroker/Inc/Publisher.hpp:75:8:void Publisher<T, MaxSubscribers>::Publish(T*) [with T = BaroData; unsigned char MaxSubscribers = 5]	56	static
+../Components/AltitudeTask/AltitudePublishTask.cpp:121:1:void __static_initialization_and_destruction_0()	8	static
+../Components/AltitudeTask/AltitudePublishTask.cpp:121:1:void __static_initialization_and_destruction_1()	8	static
+../Components/AltitudeTask/AltitudePublishTask.cpp:121:1:cpp)	8	static
+../Components/AltitudeTask/AltitudePublishTask.cpp:121:1:cpp)	8	static

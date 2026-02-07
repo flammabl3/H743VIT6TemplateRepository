@@ -1,0 +1,9 @@
+C:/Users/harry/Desktop/soar/H743VIT6TemplateRepository/SoarOS/Core/Inc/Command.hpp:48:21:GLOBAL_COMMANDS Command::GetCommand() const	16	static
+C:/Users/harry/Desktop/soar/H743VIT6TemplateRepository/SoarOS/Core/Inc/Command.hpp:49:14:uint16_t Command::GetTaskCommand() const	16	static
+C:/Users/harry/Desktop/soar/H743VIT6TemplateRepository/Components/Communication/Inc/UARTTask.hpp:31:19:static UARTTask& UARTTask::Inst()	8	static
+C:/Users/harry/Desktop/soar/H743VIT6TemplateRepository/Components/Communication/Inc/UARTTask.hpp:39:14:static void UARTTask::RunTask(void*)	16	static
+C:/Users/harry/Desktop/soar/H743VIT6TemplateRepository/Components/Communication/Inc/UARTTask.hpp:47:2:UARTTask::UARTTask()	16	static
+../Components/Communication/UARTTask.cpp:15:6:void UARTTask::ConfigureUART()	16	static
+../Components/Communication/UARTTask.cpp:23:6:virtual void UARTTask::InitTask()	32	static
+../Components/Communication/UARTTask.cpp:48:6:void UARTTask::Run(void*)	32	static
+../Components/Communication/UARTTask.cpp:67:6:void UARTTask::HandleCommand(Command&)	16	static

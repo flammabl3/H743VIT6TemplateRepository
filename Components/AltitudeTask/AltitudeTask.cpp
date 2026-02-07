@@ -62,24 +62,16 @@ void AltitudeTask::Run(void *pvParams) {
 	// Task subscribes to Data using DataBroker.
 	// Should we subscribe to each sensor individually?
 
-	// dummy publishers to avoid SOAR_ASSERT
-	IMUData imu{};
-	GPSData gps{};
-	MagData mag{};
-	BaroData baro{};
-
-	DataBroker::Publish(&imu);
-	DataBroker::Publish(&gps);
-	DataBroker::Publish(&mag);
-	DataBroker::Publish(&baro);
-
-
 
 	// Note, if Subscribe is called and the publisher is a nullptr, SOAR_ASSERT will be called, which in debug mode will actually restart the program!
 	DataBroker::Subscribe<IMUData>(this);
 	DataBroker::Subscribe<GPSData>(this);
 	DataBroker::Subscribe<MagData>(this);
 	DataBroker::Subscribe<BaroData>(this);
+
+
+	FilterData haloOutput;
+	DataBroker::Publish(&haloOutput);
 
 
 	while (1) {
@@ -100,7 +92,7 @@ void AltitudeTask::Run(void *pvParams) {
 		// main wrapper for all the Prediction filter tasks. We might want to ensure data is within the same time window.
 		std::vector<float> haloData = everest.QueueEverest(currentTime);
 
-		FilterData haloOutput;
+
 		if (haloData.size() > 0) { haloOutput = { haloData.at(0), haloData.at(1), haloData.at(2) }; }
 
 		// we dont have a publisher for this type yet!

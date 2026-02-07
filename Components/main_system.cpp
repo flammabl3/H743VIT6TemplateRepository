@@ -9,10 +9,13 @@
 #include "SystemDefines.hpp"
 #include "UARTDriver.hpp"
 
+#include "UARTTask.hpp"
+
 // Tasks
 #include "CubeTask.hpp"
 #include "DebugTask.hpp"
 #include "AltitudeTask.hpp"
+#include "AltitudePublishTask.hpp"
 
 /* Drivers ------------------------------------------------------------------*/
 namespace Driver {
@@ -28,8 +31,15 @@ void run_main() {
 
     // Init Tasks
     CubeTask::Inst().InitTask();
+
+    UARTTask::Inst().InitTask();
+
     DebugTask::Inst().InitTask();
+    AltitudePublishTask::Inst().InitTask();
     AltitudeTask::Inst().InitTask();
+
+
+
 
     // Print System Boot Info : Warning, don't queue more than 10 prints before scheduler starts
     SOAR_PRINT("\n-- CUBE SYSTEM --\n");

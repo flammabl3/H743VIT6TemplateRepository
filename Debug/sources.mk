@@ -40,6 +40,7 @@ CPP_DEPS :=
 SUBDIRS := \
 AltitudePredictionFilter \
 Components/AltitudeTask \
+Components/Communication \
 Components \
 Core/Src \
 Core/Startup \

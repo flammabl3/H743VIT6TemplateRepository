@@ -19,6 +19,7 @@ RM := rm -rf
 -include Drivers/STM32H7xx_HAL_Driver/Src/subdir.mk
 -include Core/Startup/subdir.mk
 -include Core/Src/subdir.mk
+-include Components/Communication/subdir.mk
 -include Components/AltitudeTask/subdir.mk
 -include Components/subdir.mk
 -include AltitudePredictionFilter/subdir.mk
