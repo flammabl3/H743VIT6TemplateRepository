@@ -10,6 +10,6 @@
 
 void run_interface();
 
-void cpp_USART3_IRQHandler();
+void cpp_USART2_IRQHandler();
 
 #endif /* C__IFACE_HPP_ */
