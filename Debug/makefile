@@ -21,6 +21,7 @@ RM := rm -rf
 -include Core/Src/subdir.mk
 -include Components/AltitudeTask/subdir.mk
 -include Components/subdir.mk
+-include AltitudePredictionFilter/subdir.mk
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)

@@ -12,10 +12,11 @@
 // Tasks
 #include "CubeTask.hpp"
 #include "DebugTask.hpp"
+#include "AltitudeTask.hpp"
 
 /* Drivers ------------------------------------------------------------------*/
 namespace Driver {
-    UARTDriver usart3(USART3);
+    UARTDriver usart2(USART2);
 }
 
 /* Interface Functions ------------------------------------------------------------*/
@@ -23,9 +24,12 @@ namespace Driver {
  * @brief Main function interface, called inside main.cpp before os initialization takes place.
 */
 void run_main() {
+
+
     // Init Tasks
     CubeTask::Inst().InitTask();
     DebugTask::Inst().InitTask();
+    AltitudeTask::Inst().InitTask();
 
     // Print System Boot Info : Warning, don't queue more than 10 prints before scheduler starts
     SOAR_PRINT("\n-- CUBE SYSTEM --\n");

@@ -11,6 +11,7 @@
 #include "SensorDataTypes.hpp"
 #include "DataBroker.hpp"
 #include "DataBrokerMessageTypes.hpp"
+#include "Publisher.hpp"
 
 // External Tasks (to send debug commands to)
 
@@ -23,6 +24,10 @@
 /* Variables -----------------------------------------------------------------*/
 
 /* Prototypes ----------------------------------------------------------------*/
+
+AltitudeTask::AltitudeTask() {
+	// don't know what to write for a Task constructor.
+}
 
 /**
  * @brief Init task for RTOS
@@ -42,6 +47,10 @@ void AltitudeTask::InitTask() {
 	// Ensure creation succeeded
 	SOAR_ASSERT(rtValue == pdPASS,
 			"AltitudeTask::InitTask - xTaskCreate() failed");
+
+
+	// Create an everest object
+	everest = EverestTask();
 }
 
 // TODO: Only run thread when appropriate GPIO pin pulled HIGH (or by define)
@@ -49,36 +58,52 @@ void AltitudeTask::InitTask() {
  *    @brief Runcode for the AltitudeTask
  */
 void AltitudeTask::Run(void *pvParams) {
-	// Create an everest object
-	everest = EverestTask::getEverest();
 
 	// Task subscribes to Data using DataBroker.
 	// Should we subscribe to each sensor individually?
+
+	// dummy publishers to avoid SOAR_ASSERT
+	IMUData imu{};
+	GPSData gps{};
+	MagData mag{};
+	BaroData baro{};
+
+	DataBroker::Publish(&imu);
+	DataBroker::Publish(&gps);
+	DataBroker::Publish(&mag);
+	DataBroker::Publish(&baro);
+
+
+
+	// Note, if Subscribe is called and the publisher is a nullptr, SOAR_ASSERT will be called, which in debug mode will actually restart the program!
 	DataBroker::Subscribe<IMUData>(this);
 	DataBroker::Subscribe<GPSData>(this);
 	DataBroker::Subscribe<MagData>(this);
 	DataBroker::Subscribe<BaroData>(this);
 
+
 	while (1) {
 		// Time in seconds given by ticks since program execution, divided by 1000.0f for seconds.
 		currentTime = TICKS_TO_MS(xTaskGetTickCount()) / 1000.0f;
 
-		/* Process commands in blocking mode
-		 * HandleCommand should place the appropriate sensor data into their respective structs.
-		 * */
+		SOAR_PRINT("\n Current Time: %d \n", currentTime);
+
+		/*  Should be Receive. ReceiveWait is blocking! */
+		uint32_t timeout = 10; // t0 ms wait
+
 		Command cm;
-		bool res = qEvtQueue->ReceiveWait(cm);
+		bool res = qEvtQueue->Receive(cm, timeout);
 		if (res) {
 			HandleCommand(cm);
 		}
 
 		// main wrapper for all the Prediction filter tasks. We might want to ensure data is within the same time window.
-		std::vector<float> haloData = everest.QueueEverest(&everest);
+		std::vector<float> haloData = everest.QueueEverest(currentTime);
 
-		// should this be blocking?
-		FilterData haloOutput =
-				{ haloData.at(0), haloData.at(1), haloData.at(2) };
+		FilterData haloOutput;
+		if (haloData.size() > 0) { haloOutput = { haloData.at(0), haloData.at(1), haloData.at(2) }; }
 
+		// we dont have a publisher for this type yet!
 		DataBroker::Publish<FilterData>(&haloOutput);
 	}
 }
@@ -128,13 +153,13 @@ void AltitudeTask::HandleDataBrokerCommand(const Command &cm) {
 		IMUData1 = IMUData_Everest(currentTime, imu_data.gyroX, imu_data.gyroY,
 				imu_data.gyroZ, imu_data.accelX, imu_data.accelY,
 				imu_data.accelZ, IMUData1.magX, IMUData1.magY, IMUData1.magZ);
-		everest.IMU1_Measurements(IMUData1, &everest);
+		everest.IMU1_Measurements(IMUData1);
 
 		// imudata2 is reduplicated for now...
 		IMUData2 = IMUData_Everest(currentTime, imu_data.gyroX, imu_data.gyroY,
 				imu_data.gyroZ, imu_data.accelX, imu_data.accelY,
 				imu_data.accelZ, IMUData1.magX, IMUData1.magY, IMUData1.magZ);
-		everest.IMU2_Measurements(IMUData2, &everest);
+		everest.IMU2_Measurements(IMUData2);
 
 		break;
 	}
@@ -143,7 +168,7 @@ void AltitudeTask::HandleDataBrokerCommand(const Command &cm) {
 		GPSData gps_data = DataBroker::ExtractData<GPSData>(cm);
 
 		gps = gps_data.gps;
-		everest.GPS_Measurements(gps, &everest);
+		everest.GPS_Measurements(gps);
 
 		break;
 	}
@@ -155,13 +180,13 @@ void AltitudeTask::HandleDataBrokerCommand(const Command &cm) {
 		IMUData1 = IMUData_Everest(currentTime, IMUData1.gyroX, IMUData1.gyroY,
 				IMUData1.gyroZ, IMUData1.accelX, IMUData1.accelY,
 				IMUData1.accelZ, mag_data.magX, mag_data.magY, mag_data.magZ);
-		everest.IMU1_Measurements(IMUData1, &everest);
+		everest.IMU1_Measurements(IMUData1);
 
 		// imudata2 is reduplicated for now...
 		IMUData2 = IMUData_Everest(currentTime, IMUData2.gyroX, IMUData2.gyroY,
 				IMUData2.gyroZ, IMUData2.accelX, IMUData2.accelY,
 				IMUData2.accelZ, mag_data.magX, mag_data.magY, mag_data.magZ);
-		everest.IMU2_Measurements(IMUData2, &everest);
+		everest.IMU2_Measurements(IMUData2);
 
 
 		break;
@@ -171,10 +196,10 @@ void AltitudeTask::HandleDataBrokerCommand(const Command &cm) {
 		BaroData baro_data = DataBroker::ExtractData<BaroData>(cm);
 
 	    baro1 = {currentTime, baro_data.baro, 0, 0};
-	    everest.Baro1_Measurements(baro1, &everest);
+	    everest.Baro1_Measurements(baro1);
 
 	    baro2 = {currentTime, baro_data.baro, 0, 0};
-	    everest.Baro2_Measurements(baro2, &everest);
+	    everest.Baro2_Measurements(baro2);
 
 		break;
 	}

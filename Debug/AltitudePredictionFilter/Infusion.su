@@ -1,0 +1,43 @@
+../AltitudePredictionFilter/infusion.hpp:230:21:float DegreesToRadians(float)	16	static
+../AltitudePredictionFilter/infusion.hpp:239:21:float RadiansToDegrees(float)	16	static
+../AltitudePredictionFilter/infusion.hpp:250:21:float Asin(float)	16	static
+../AltitudePredictionFilter/infusion.hpp:270:21:float fastInverseSqrt(float)	24	static
+../AltitudePredictionFilter/infusion.hpp:289:20:bool madVectorIsZero(madVector)	24	static
+../AltitudePredictionFilter/infusion.hpp:300:25:madVector madVectorAdd(madVector, madVector)	72	static
+../AltitudePredictionFilter/infusion.hpp:316:25:madVector madVectorSubtract(madVector, madVector)	72	static
+../AltitudePredictionFilter/infusion.hpp:331:21:float madVectorSum(madVector)	24	static
+../AltitudePredictionFilter/infusion.hpp:341:25:madVector madVectorMultiplyScalar(madVector, float)	64	static
+../AltitudePredictionFilter/infusion.hpp:357:25:madVector madVectorHadamardProduct(madVector, madVector)	72	static
+../AltitudePredictionFilter/infusion.hpp:373:25:madVector madVectorCrossProduct(madVector, madVector)	72	static
+../AltitudePredictionFilter/infusion.hpp:393:21:float madVectorDotProduct(madVector, madVector)	48	static
+../AltitudePredictionFilter/infusion.hpp:403:21:float madVectorMagnitudeSquared(madVector)	40	static
+../AltitudePredictionFilter/infusion.hpp:412:21:float madVectorMagnitude(madVector)	24	static
+../AltitudePredictionFilter/infusion.hpp:421:25:madVector madVectorNormalise(madVector)	56	static
+../AltitudePredictionFilter/infusion.hpp:439:29:madQuaternion madQuaternionAdd(madQuaternion, madQuaternion)	88	static
+../AltitudePredictionFilter/infusion.hpp:457:29:madQuaternion madQuaternionMultiply(madQuaternion, madQuaternion)	88	static
+../AltitudePredictionFilter/infusion.hpp:482:29:madQuaternion madQuaternionMultiplyVector(madQuaternion, madVector)	88	static
+../AltitudePredictionFilter/infusion.hpp:502:29:madQuaternion madQuaternionNormalise(madQuaternion)	88	static
+../AltitudePredictionFilter/Infusion.cpp:63:6:void Infusion::madAhrsInitialise(madAhrs*)	48	static
+../AltitudePredictionFilter/Infusion.cpp:81:6:void madAhrsReset(madAhrs*)	16	static
+../AltitudePredictionFilter/Infusion.cpp:102:6:void Infusion::madAhrsSetSettings(madAhrs*, const madAhrsSettings*)	24	static
+../AltitudePredictionFilter/Infusion.cpp:134:6:void Infusion::reinitialiseGyro(madAhrs*, madVector)	56	static
+../AltitudePredictionFilter/Infusion.cpp:146:6:void Infusion::rampDownGain(madAhrs*, float)	24	static
+../AltitudePredictionFilter/Infusion.cpp:158:11:madVector Infusion::accelerometerFeedback(madAhrs*, madVector, madVector, madVector)	104	static
+../AltitudePredictionFilter/Infusion.cpp:197:11:madVector Infusion::magnetometerFeedback(madAhrs*, madVector, madVector, madVector)	128	static
+../AltitudePredictionFilter/Infusion.cpp:267:6:void Infusion::madAhrsUpdate(madAhrs*, madVector, madVector, madVector, float)	240	static
+../AltitudePredictionFilter/Infusion.cpp:401:25:madVector HalfGravity(const madAhrs*)	72	static
+../AltitudePredictionFilter/Infusion.cpp:433:25:madVector HalfMagnetic(const madAhrs*)	80	static
+../AltitudePredictionFilter/Infusion.cpp:474:25:madVector Feedback(madVector, madVector)	72	static
+../AltitudePredictionFilter/Infusion.cpp:490:19:int Clamp(int, int, int)	24	static
+../AltitudePredictionFilter/Infusion.cpp:508:6:void Infusion::madAhrsUpdateNoMagnetometer(madAhrs*, madVector, madVector, float)	64	static
+../AltitudePredictionFilter/Infusion.cpp:530:6:void Infusion::madAhrsUpdateExternalHeading(madAhrs*, madVector, madVector, float, float)	72	static
+../AltitudePredictionFilter/Infusion.cpp:561:15:madQuaternion Infusion::madAhrsGetQuaternion(const madAhrs*)	48	static
+../AltitudePredictionFilter/Infusion.cpp:570:6:void madAhrsSetQuaternion(madAhrs*, madQuaternion)	32	static
+../AltitudePredictionFilter/Infusion.cpp:580:11:madVector madAhrsGetLinearAcceleration(const madAhrs*)	56	static
+../AltitudePredictionFilter/Infusion.cpp:610:11:madVector Infusion::madAhrsGetEarthAcceleration(const madAhrs*)	88	static
+../AltitudePredictionFilter/Infusion.cpp:653:23:madAhrsInternalStates Infusion::madAhrsGetInternalStates(const madAhrs*)	24	static
+../AltitudePredictionFilter/Infusion.cpp:681:14:madAhrsFlags Infusion::madAhrsGetFlags(const madAhrs*)	24	static
+../AltitudePredictionFilter/Infusion.cpp:700:6:void madAhrsSetHeading(madAhrs*, float)	48	static
+../AltitudePredictionFilter/Infusion.cpp:728:7:float compassCalculateHeading(EarthConvention, madVector, madVector)	208	static
+../AltitudePredictionFilter/Infusion.cpp:773:6:void Infusion::madOffsetInitialise(madOffset*, unsigned int)	24	static
+../AltitudePredictionFilter/Infusion.cpp:789:11:madVector Infusion::madOffsetUpdate(madOffset*, madVector)	80	static
