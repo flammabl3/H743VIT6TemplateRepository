@@ -1,13 +1,14 @@
 [submodule "SoarOS"]
 	path = SoarOS
-	url = https://github.com/UCSOAR/SoarOperatingSystem.git
-	branch = master
+	url = https://github.com/flammabl3/SoarOperatingSystem
+	branch = harry/AltitudeFilterIntegration
 [submodule "PeripheralDriversSubmodule"]
 	path = PeripheralDriversSubmodule
-	url = https://github.com/UCSOAR/PeripheralDriversSubmodule.git
-	branch = master
+	url = https://github.com/flammabl3/PeripheralDriversSubmodule.git
+	branch = harry/AltitudeIntegration
 
 
 [submodule "AltitudePredictionFilter"]
 	path = AltitudePredictionFilter
-	url = https://github.com/UCSOAR/AltitudePredictionFilter.git
+	url = https://github.com/flammabl3/AltitudePredictionFilter.git
+	branch = harry/altitude-prediction-filter-integration
